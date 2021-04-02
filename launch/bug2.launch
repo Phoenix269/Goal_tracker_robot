@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+    <include file="$(find goal_publisher)/launch/goal_publisher.launch"/>
+    <arg name="initial_x" default="0.001" />
+    <arg name="initial_y" default="0.001" />
+    <param name="initial_x" value="$(arg initial_x)" />
+    <param name="initial_y" value="$(arg initial_y)" />
+    <node pkg="vs_183450_miniprj" type="follow_wall.py" name="wall_follower" />
+    <node pkg="vs_183450_miniprj" type="go_to_point.py" name="go_to_point" />
+    <node pkg="vs_183450_miniprj" type="bug2.py" name="bug2" output="screen" />
+</launch>
